@@ -45,9 +45,9 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li class="active"><a href="quotes.html">Quotes</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
           <li><a href="calculate.html">Calculate Solar Bill</a></li>
-          <li><a href="referral.html">Referral</a></li>
+          <li class="active"><a href="referral.html">Referral</a></li>
 
 
         </ul>
@@ -66,10 +66,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Quotes</h2>
+          <h2>Referral</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Quotes</li>
+            <li>Referral</li>
           </ol>
         </div>
 
@@ -134,13 +134,12 @@
                 </div>
               </div>
               <div class="form-row">
-                <div class="col-md-6 form-group">
-                <input type="text" class="form-control" name="Zipcode" id="subject" placeholder="Zipcode" data-rule="minlen:4" data-msg="Please enter at least 4 chars of subject" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="number" name="phone" class="form-control" id="phone" placeholder="Avarage monthly electric bil" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
-                  <div class="validate"></div>
+                <div class="col-md-12 form-group">
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Preffered Language</option>
+                    <option value="english">English</option>
+                    <option value="spanish">Spanish</option>
+                  </select>
                 </div>
               </div>
               <div class="mb-3">
@@ -148,7 +147,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">REQUEST A FREE QUOTE!</button></div>
+              <div class="text-center"><button type="submit">SUBMIT</button></div>
             </form>
           </div>
 
