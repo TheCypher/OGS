@@ -2238,3 +2238,24 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+/*--------------------------------------------------------------
+# Locations Page
+--------------------------------------------------------------*/
+.state-title{
+  
+}
+.title-underline{
+  width: 100%;
+  height: 2px;
+  background-color: #03abec;
+  position: relative;
+  left: -20px;
+  margin-bottom: 30px;
+}
+.location-icon{
+  width: 45px;
+  position: absolute;
+  left: -30px;
+  top: -30px;
+}
