@@ -1410,6 +1410,9 @@ section {
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
+.show{
+  display: block !important;
+}
 
 .contact .php-email-form input, .contact .php-email-form textarea {
   border-radius: 0;

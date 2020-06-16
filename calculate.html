@@ -115,7 +115,7 @@
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form id="sendEmail-id" role="form" class="php-email-form">
+            <form id="sendEmail-id" role="form" class="php-email-form" onsubmit="uploadFileToEmail()">
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="firstname" class="form-control" id="firstname" placeholder="First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -150,16 +150,16 @@
                   <div class="validate"></div>
                 </div>
                <div class="col-md-6 form-group">
-                  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" id="attached" placeholder="Avarage monthly electric bil" data-rule="minlen:10" data-msg="Please select and file" onchange="uploadFileToEmail()"/>
+                  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" id="attached" placeholder="Avarage monthly electric bil" data-rule="minlen:10" data-msg="Please select and file"/>
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="mb-3">
-                <div class="loading">Loading</div>
+                <div class="loading">Loading, this make take a minute or two depending on the size of your file.</div>
 <!--                 <div class="error-message"></div>
  -->                <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit" onclick="sendEmail()">CALCULATE YOUR SOLAR BILL!</button></div>
+              <div class="text-center"><button type="submit">CALCULATE YOUR SOLAR BILL!</button></div>
             </form>
           </div>
         </div>
@@ -241,7 +241,8 @@
     var customer_zip = document.getElementById("zip").value;
     var customer_phone = document.getElementById("phone").value;
     var customer_lastbill = document.getElementById("lastbill").value;
-    var customer_email_body = `${customer_firstname} ${customer_lastname} would like a quote. The potential customer's email: ${customer_email}. Their Zip code is ${customer_zip}. You can reach them at ${customer_phone}, and their average bill is${customer_lastbill}.`;
+    var customer_email_body = `${customer_firstname} ${customer_lastname} would like a quote. The potential customer's email: ${customer_email}. Their Zip code is ${customer_zip}. You can reach them at ${customer_phone}, and their average bill is $${customer_lastbill}. See their attached bill below.`;
+    $('.loading').addClass('show');
     Email.send({
         Host : "smtp.gmail.com",
         Username : "sonnick578@gmail.com",
@@ -256,7 +257,8 @@
         }]
     }).then(
       message =>{
-        if(message="ok"){
+        if(message=="OK"){
+          $('.loading').removeClass('show');
           alert("Thank you, your info has been submitted and someone from our team will be in contact with you shortly!")
         }
         else{
