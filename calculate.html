@@ -115,7 +115,7 @@
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="sendEmail-id" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="firstname" class="form-control" id="firstname" placeholder="First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -150,19 +150,18 @@
                   <div class="validate"></div>
                 </div>
                <div class="col-md-6 form-group">
-                  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" id="phone" placeholder="Avarage monthly electric bil" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
+                  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" id="attached" placeholder="Avarage monthly electric bil" data-rule="minlen:10" data-msg="Please select and file" />
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="mb-3">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+<!--                 <div class="error-message"></div>
+ -->                <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">CALCULATE YOUR SOLAR BILL!</button></div>
+              <div class="text-center"><button type="submit" onclick="sendEmail()">CALCULATE YOUR SOLAR BILL!</button></div>
             </form>
           </div>
-
         </div>
 
       </div>
@@ -226,8 +225,37 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<script type="text/javascript">
+  function sendEmail() {
+    var customer_firstname = document.getElementById("firstname").value;
+    var customer_lastname = document.getElementById("lastname").value;
+    var customer_email = document.getElementById("email").value;
+    var customer_attached = document.getElementById("fileToUpload").value;
+    var customer_email_body = 'This is the email body';
+    
+    Email.send({
+        Host : "smtp.gmail.com",
+        Username : "sonnick578@gmail.com",
+        Password : "passwordpass",
+        To : 'nicksonthecypher@gmail.com',
+        From : customer_email,
+        Subject : "Website lead",
+        Body : customer_email_body,
+        Attachments : [{
+          name : "smtpjs.png",
+          path : "https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png"
+        }]
+    }).then(
+      message => alert(message)
+    );
+  };
+</script>
 
 </body>
 
