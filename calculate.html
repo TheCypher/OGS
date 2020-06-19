@@ -29,6 +29,16 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170081186-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-170081186-1');
+  </script>
+
 </head>
 
 <body>
@@ -205,7 +215,7 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>Company</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>OG Solar</span></strong>. All Rights Reserved
         </div>
       </div>
     </div>
@@ -241,15 +251,15 @@
     var customer_zip = document.getElementById("zip").value;
     var customer_phone = document.getElementById("phone").value;
     var customer_lastbill = document.getElementById("lastbill").value;
-    var customer_email_body = `${customer_firstname} ${customer_lastname} would like a quote. The potential customer's email: ${customer_email}. Their Zip code is ${customer_zip}. You can reach them at ${customer_phone}, and their average bill is $${customer_lastbill}. See their attached bill below.`;
+    var customer_email_body = `${customer_firstname} ${customer_lastname} would like to calculate their bill. The potential customer's email: ${customer_email}. Their Zip code is ${customer_zip}. You can reach them at ${customer_phone}, and their average bill is $${customer_lastbill}. See their attached bill below.`;
     $('.loading').addClass('show');
     Email.send({
         Host : "smtp.gmail.com",
         Username : "sonnick578@gmail.com",
         Password : "passwordpass",
-        To : 'aaronyihsignups@gmail.com',
+        To : 'admin@renosolar.org',
         From : customer_email,
-        Subject : "Quote Request from Website",
+        Subject : "Calculate Bill Request from Website",
         Body : customer_email_body,
         Attachments : [{
           name : "uploaded_bill.pdf",
